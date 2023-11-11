@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed = 3f;
     public float jumpSpeed = 1f;
+    public PlayerSounds playerSounds;
 
     private bool isGrounded = true;
     private Rigidbody rb;
@@ -39,11 +40,19 @@ public class PlayerMovement : MonoBehaviour
         if(fakeVelocity > 0)
         {
             transform.localRotation = Quaternion.Euler(0, 90, 0);
+            if(isGrounded)
+            {
+                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.5f);
+            }
         }
         // going left
         if (fakeVelocity < 0)
         {
             transform.localRotation = Quaternion.Euler(0, -90, 0);
+            if (isGrounded)
+            {
+                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.5f);
+            }
         }
 
         animator.SetInteger("fakeVelocity", fakeVelocity);
@@ -56,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpSpeed);
                 isGrounded = false;
                 animator.SetBool("isGrounded", isGrounded);
+                playerSounds.PlayAudioClip(playerSounds.jump, volume: 0.5f);
             }
         }
     }
@@ -66,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("isGrounded", isGrounded);
+            playerSounds.PlayAudioClip(playerSounds.hitGround, volume: 0.5f);
+
         }
     }
 }
