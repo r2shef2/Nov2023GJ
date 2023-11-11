@@ -54,4 +54,9 @@ public class CameraMovement : MonoBehaviour
         color.a = alpha;
         divider.material.color = color;
     }
+
+    public void RotateCamera(bool rotate)
+    {
+        isRotated = rotate;
+    }
 }

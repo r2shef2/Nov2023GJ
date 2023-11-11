@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSounds playerSounds;
 
     private bool isGrounded = true;
+    private bool isInsideLeverBounds = false;
+    private Lever lever;
     private Rigidbody rb;
     private Animator animator;
 
@@ -37,10 +39,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // going right
-        if(fakeVelocity > 0)
+        if (fakeVelocity > 0)
         {
             transform.localRotation = Quaternion.Euler(0, 90, 0);
-            if(isGrounded)
+            if (isGrounded)
             {
                 playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.1f);
             }
@@ -57,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetInteger("fakeVelocity", fakeVelocity);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             if (isGrounded)
             {
@@ -77,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             animator.SetBool("isGrounded", isGrounded);
             playerSounds.PlayAudioClip(playerSounds.hitGround, volume: 0.5f);
-
         }
     }
 }
