@@ -31,9 +31,6 @@ public class LeverTriggerCollider : MonoBehaviour
         }
     }
 
-
-    public LeverTriggerCollider triggerCollider;
-
     [Serializable]
     public class triggerCollidedEvent : UnityEvent { }
     [SerializeField]
