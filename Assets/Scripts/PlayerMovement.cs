@@ -78,7 +78,17 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("isGrounded", isGrounded);
-            playerSounds.PlayAudioClip(playerSounds.hitGround, volume: 0.5f);
+
+
+            if (Time.timeSinceLevelLoad > 1)
+            {
+                playerSounds.PlayAudioClip(playerSounds.hitGround, volume: 0.5f);
+            }
         }
+    }
+
+    public void AnimateButtonPress()
+    {
+        animator.SetTrigger("interact");
     }
 }

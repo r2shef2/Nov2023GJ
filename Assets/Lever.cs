@@ -32,5 +32,6 @@ public class Lever : MonoBehaviour
     public void LeverPulled()
     {
         m_OnLeverChanged.Invoke();
+        triggerCollider.playerMovement.AnimateButtonPress();
     }
 }
