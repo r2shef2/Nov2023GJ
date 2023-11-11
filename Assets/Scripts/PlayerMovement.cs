@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 90, 0);
             if(isGrounded)
             {
-                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.5f);
+                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.1f);
             }
         }
         // going left
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, -90, 0);
             if (isGrounded)
             {
-                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.5f);
+                playerSounds.PlayAudioClip(playerSounds.walk, volume: 0.1f);
             }
         }
 
