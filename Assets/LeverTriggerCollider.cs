@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class LeverTriggerCollider : MonoBehaviour
 {
     public bool playerIsInBounds = false;
+
+    [HideInInspector]
     public PlayerMovement playerMovement;
 
     private void OnTriggerEnter(Collider other)
