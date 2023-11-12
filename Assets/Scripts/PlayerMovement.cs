@@ -10,8 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerSounds playerSounds;
 
     private bool isGrounded = true;
-    private bool isInsideLeverBounds = false;
-    private Lever lever;
     private Rigidbody rb;
     private Animator animator;
 
@@ -70,6 +68,12 @@ public class PlayerMovement : MonoBehaviour
                 playerSounds.PlayAudioClip(playerSounds.jump, volume: 0.5f);
             }
         }
+
+        if (rb.velocity.y == 0)
+        {
+            animator.SetBool("isGrounded", isGrounded);
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
