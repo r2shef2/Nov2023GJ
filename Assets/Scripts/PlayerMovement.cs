@@ -90,5 +90,6 @@ public class PlayerMovement : MonoBehaviour
     public void AnimateButtonPress()
     {
         animator.SetTrigger("interact");
+        playerSounds.PlayAudioClip(playerSounds.pullLever, volume: 0.5f);
     }
 }

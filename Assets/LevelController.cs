@@ -26,6 +26,8 @@ public class LevelController : MonoBehaviour
         {
             currentLevel += 1;
 
+            GetComponent<AudioSource>().Play();
+
             switch (currentLevel)
             {
                 case 1:
