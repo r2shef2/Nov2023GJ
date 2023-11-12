@@ -59,4 +59,9 @@ public class CameraMovement : MonoBehaviour
     {
         isRotated = rotate;
     }
+
+    public void MoveLevel(int level)
+    {
+        currentSnapPoint = level;
+    }
 }
